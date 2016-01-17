@@ -10,7 +10,7 @@ Box on Atlas:
 
 Current stable version of the box:
 
-  * v1.0.3
+  * v1.0.4
 
 Current Vagrant Providers:
   * Virtualbox ^5.0.0 (Guest Additions Version: 5.0.12)
