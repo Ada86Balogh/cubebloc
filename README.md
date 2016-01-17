@@ -10,7 +10,7 @@ Box on Atlas:
 
 Current stable version of the box:
 
-  * v1.0.2
+  * v1.0.3
 
 Current Vagrant Providers:
   * Virtualbox ^5.0.0 (Guest Additions Version: 5.0.12)
@@ -25,6 +25,7 @@ Current Vagrant Providers:
     * [Remove Site](#remove-site)
     * [MySQL](#mysql)
     * [Redis](#redis)
+      * [Redis Password](#redis-password)
     * [Host file](#host-file)
   * [Windows Users](#windows-users)
   * [Additional Setup](#additional-setup)
@@ -66,35 +67,39 @@ $ vagrant ssh
 
 However after the 100th times it could be annoying so we can setup some alias for it to reach anywhere from our system.
 
-#### Add New Site
+#### Adding New Site
 
 Cubebloc provides you a simple script what you can use to add new sites to your web server easily. All you have to do is to give it the proper arguments.
 
 The first is the "domain" and the second is the path of the directory. **Important** to remember the whole path will /var/www/cubebloc but you only have to add the rest of it.
 
 ```bash
+$ vagrant ssh
 $ a2newsite.sh <domain> <path>
 ```
 
 ###### Example
 
 ```bash
+$ vagrant ssh
 $ a2newsite.sh example.cube example/public
 ```
 
 So you can reach your site on example.cube and the docroot will be /var/www/cubebloc/example/public
 
-#### Remove Site
+#### Removing Site
 
 You got another script for removing site from your webserver. But now you only have to type the domain of it.
 
 ```bash
+$ vagrant ssh
 $ a2removesite.sh <domain>
 ```
 
 ###### Example
 
 ```bash
+$ vagrant ssh
 $ a2removesite.sh example.cube
 ```
 

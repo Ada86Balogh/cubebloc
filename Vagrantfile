@@ -15,8 +15,6 @@ Vagrant.configure(2) do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.name = "cubebloc"
 
-    vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
-    
     vb.cpus = "2"
     vb.memory = "2048"
   end                                                             
