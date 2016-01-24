@@ -10,7 +10,7 @@ Box on Atlas:
 
 Current stable version of the box:
 
-  * v1.0.4
+  * v1.0.5
 
 Current Vagrant Providers:
   * Virtualbox ^5.0.0 (Guest Additions Version: 5.0.12)
@@ -25,7 +25,6 @@ Current Vagrant Providers:
     * [Removing Site](#removing-site)
     * [MySQL](#mysql)
     * [Redis](#redis)
-      * [Redis Password](#redis-password)
     * [Host file](#host-file)
   * [Windows Users](#windows-users)
   * [Additional Setup](#additional-setup)
@@ -112,18 +111,18 @@ There are two users:
 | User | Password |
 | ---- | -------- |
 | root | secret|
-| laravel | secret |
+| cubebloc | secret |
 
 And two databases set:
 
 | Database | Character | Collate |
 | -------- | --------- | ------- |
-| laravel | utf8 | utf8_unicode_ci |
+| cubebloc | utf8 | utf8_unicode_ci |
 | testing | utf8 | utf8_unicode_ci |
 
 #### Redis
 
-Redis is binded to the 127.0.0.1 address and protected by password. If you would like to change it edit the config file.
+Redis is binded to the 127.0.0.1 address and not protected by password. If you would like to change it edit the config file.
 
 ```bash
 $ sudo vi /etc/redis/redis.conf
@@ -138,16 +137,12 @@ $ sudo vi /etc/redis/redis.conf
 307 # 150k passwords per second against a good box. This means that you should
 308 # use a very strong password otherwise it will be very easy to break.
 309 #
-310 requirepass secret
+310 # requirepass secret
 311
 ...
 
 $ sudo service redis-server restart
 ```
-
-###### Redis password
-
-The password is: **secret**
 
 #### Host file
 
@@ -218,7 +213,7 @@ $ vagrant provision
 At default the shared folder will be the projects directory and it will be synced to /var/www/cubebloc. But if you don't like it you can change it in the Vagrantfile:
 
 ```ruby
-13 config.vm.synced_folder "./projects", "/var/www/cubebloc"
+12 config.vm.synced_folder "./projects", "/var/www/cubebloc", owner: "vagrant", group: "vagrant", :mount_options => ["dmode=775", "fmode=666"]
 ```
 
 All you have to do is to change the values in line 13. First parameter is the path on the host and the second is the path on the virtual machine.
@@ -228,7 +223,7 @@ All you have to do is to change the values in line 13. First parameter is the pa
 We can reach our virtual machine on the 192.168.33.10 address. However if you would like to change it just edit the 11th line of the Vagrantfile:
 
 ```ruby
-11 config.vm.network "private_network", ip: "192.168.33.10"
+10 config.vm.network "private_network", ip: "192.168.33.10"
 ```
 
 #### Resources
@@ -236,8 +231,8 @@ We can reach our virtual machine on the 192.168.33.10 address. However if you wo
 Cubebloc uses 2 cores of your CPUs and 2 GB memory. If it is too much or you would like to give it more just edit the proper lines in the Vagrantfile:
 
 ```ruby
-20 vb.cpus = "2"
-21 vb.memory = "2048"
+17 vb.cpus = "2"
+18 vb.memory = "2048"
 ```
 
 *Warning! Less resources could change your virtual machine performance drastically.*
@@ -247,8 +242,9 @@ Cubebloc uses 2 cores of your CPUs and 2 GB memory. If it is too much or you wou
 Basically two ports are forwaded from your host to your virtual machine but if you wanna modify them or add more you can do it in the Vagrantfile:
 
 ```ruby
-8 config.vm.network "forwarded_port", guest: 80, host: 8080
-9 config.vm.network "forwarded_port", guest: 3306, host: 33060
+6 config.vm.network "forwarded_port", guest: 80, host: 8080
+7 config.vm.network "forwarded_port", guest: 443, host: 4430
+8 config.vm.network "forwarded_port", guest: 3306, host: 33060
 ```
 
 ## Contact
