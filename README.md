@@ -234,7 +234,7 @@ $ vagrant provision
 At default the shared folder will be the projects directory and it will be synced to /var/www/cubebloc. But if you don't like it you can change it in the Vagrantfile:
 
 ```ruby
-12 config.vm.synced_folder "./projects", "/var/www/cubebloc", owner: "vagrant", group: "vagrant", :mount_options => ["dmode=775", "fmode=666"]
+13 config.vm.synced_folder "./projects", "/var/www/cubebloc", :mount_options => ["dmode=777", "fmode=666"]
 ```
 
 All you have to do is to change the values in line 13. First parameter is the path on the host and the second is the path on the virtual machine.
@@ -244,7 +244,7 @@ All you have to do is to change the values in line 13. First parameter is the pa
 We can reach our virtual machine on the 192.168.33.10 address. However if you would like to change it just edit the 11th line of the Vagrantfile:
 
 ```ruby
-10 config.vm.network "private_network", ip: "192.168.33.10"
+11 config.vm.network "private_network", ip: "192.168.33.10"
 ```
 
 #### Resources
@@ -252,8 +252,8 @@ We can reach our virtual machine on the 192.168.33.10 address. However if you wo
 Cubebloc uses 2 cores of your CPUs and 2 GB memory. If it is too much or you would like to give it more just edit the proper lines in the Vagrantfile:
 
 ```ruby
-17 vb.cpus = "2"
-18 vb.memory = "2048"
+18 vb.cpus = "2"
+19 vb.memory = "2048"
 ```
 
 *Warning! Less resources could change your virtual machine performance drastically.*
@@ -266,6 +266,7 @@ Basically two ports are forwaded from your host to your virtual machine but if y
 6 config.vm.network "forwarded_port", guest: 80, host: 8080
 7 config.vm.network "forwarded_port", guest: 443, host: 4430
 8 config.vm.network "forwarded_port", guest: 3306, host: 33060
+9 config.vm.network "forwarded_port", guest: 5432, host: 54320
 ```
 
 ## Contact
