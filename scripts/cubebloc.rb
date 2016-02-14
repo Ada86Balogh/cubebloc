@@ -4,7 +4,7 @@ class Cubebloc
     config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
     config.ssh.forward_agent = true
 
-    config.vm.box = settings["name"] ||= "adamoa/cubebloc"
+    config.vm.box = settings["box"] ||= "adamoa/cubebloc"
     config.vm.box_version = settings["version"] ||= ">= 1.2.0"
     config.vm.hostname = settings["name"] ||= "cubebloc"
 
