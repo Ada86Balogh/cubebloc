@@ -1,21 +1,21 @@
+require 'json'
+
+jsonPath = "./cubebloc.json"
+afterScriptPath = "./after.sh"
+aliasesPath = "/aliases"
+
+require File.expand_path(File.dirname(__FILE__) + '/scripts/cubebloc.rb')
+
 Vagrant.configure(2) do |config|
-  config.vm.box = "adamoa/cubebloc"
+  if File.exists? aliasesPath then
+      config.vm.provision "file", source: aliasesPath, destination: "~/.bash_aliases"
+  end
 
-  config.vm.hostname = "cubebloc"
+  if File.exists? jsonPath then
+    Cubebloc.configure(config, JSON.parse(File.read(jsonPath)))
+  end
 
-  config.vm.network "forwarded_port", guest: 80, host: 8000
-  config.vm.network "forwarded_port", guest: 443, host: 4430
-  config.vm.network "forwarded_port", guest: 3306, host: 33060
-  config.vm.network "forwarded_port", guest: 5432, host: 54320
-
-  config.vm.network "private_network", ip: "192.168.33.10"
-
-  config.vm.synced_folder "./projects", "/var/www/cubebloc", :mount_options => ["dmode=777", "fmode=666"]
-
-  config.vm.provider "virtualbox" do |vb|
-    vb.name = "cubebloc"
-
-    vb.cpus = "2"
-    vb.memory = "2048"
-  end                                                             
+  if File.exists? afterScriptPath then
+    config.vm.provision "shell", path: afterScriptPath
+  end
 end

@@ -1,0 +1,29 @@
+{
+  "name": "cubebloc",
+  "ip": "192.168.40.10",
+  "cpus": 2,
+  "memory": 2048,
+
+  "authorize": "~/.ssh/id_rsa.pub",
+  
+  "keys": [ "~/.ssh/id_rsa" ],
+
+  "ports": [
+    { "host": "8000", "guest": "80" },
+    { "host": "4430", "guest": "443" },
+    { "host": "33060", "guest": "3306" },
+    { "host": "54320", "guest": "5432" },
+    { "host": "27017", "guest": "27017" }, 
+    { "host": "6379", "guest": "63790" }
+  ],
+
+  "folders": [
+    { "host": "~/cubebloc", "guest": "/var/www/cubebloc" }
+  ],
+
+  "sites": [
+    { "domain": "example.cube", "folder": "/var/www/cubebloc/example" }
+  ],
+
+  "databases": [ "cubebloc", "testing" ]
+}
