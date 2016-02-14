@@ -13,6 +13,7 @@
     * [Redis](#redis)
     * [Host file](#host-file)
   * [Windows Users](#windows-users)
+  * [Laravel](#laravel)
   * [Contact](#contact)
 
 ## Introduction
@@ -141,7 +142,7 @@ There are two users:
 
 #### MongoDB
 
-
+The new MongoDB is also installed by default. You can reach it either from the host or from the guest on 127.0.0.1:27017
 
 #### Redis
 
