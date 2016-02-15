@@ -18,9 +18,9 @@
 
 ## Introduction
 
-Cubebloc is a work ready Vagrant box that provides you a development environment without requiring you to install any server software on your local machine.
+Cubebloc is a work-ready Vagrant box that provides you a development environment without the need to install any server software on your local machine.
 
-Cubebloc runs on any Windows, Mac, or Linux system, and includes the latest technologies so all you have to do is fire up and start your fresh new projects.
+Cubebloc runs on any Windows, Mac, or Linux system and includes the latest technologies, so all you have to do is fire up and start your fresh, new projects.
 
 Current stable version of the box:
 
@@ -53,7 +53,7 @@ Current Vagrant Providers:
 
 > **Note:** Before launching Cubebloc, you must install [VirtualBox 5.x](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com).
 
-After you installed both of them you just simply fire up your Cubebloc development environment with the following steps:
+After the installation you can simply fire up your Cubebloc development environment with the following steps:
 
 ```bash
 $ vagrant box add adamoa/cubebloc
@@ -65,14 +65,14 @@ $ vagrant up
 
 #### Config Cubebloc
 
-However Cubebloc provides basically everything what we need out of the box but there could some cases when we need to configure it a little bit.
+Although Cubebloc provides basically everything what we need out-of-the-box, there are some cases when we need to configure it a little bit.
 
 **Config file**
-You can find a ```cubebloc.json``` file in your folder and with that you can configure your vagrant machine.
+You can find a ```cubebloc.json``` file in your Cubebloc folder where you can carry out the configuration of your vagrant machine.
 
 **Shared folders**
 
-The folders property of the cubebloc.json file lists all of the folders you want. As files within these folders are changed, they will be kept in sync between your local machine and Cubebloc. You may configure as many shared folders as many needed:
+The folders property of the cubebloc.json file lists all the folders you want. As files within these folders are changed, they will be kept in sync between your local machine and Cubebloc. You may configure as many shared folders as you need:
 
 ```json
 20   "folders": [
@@ -90,11 +90,11 @@ The folders property of the cubebloc.json file lists all of the folders you want
 26   ],
 ```
 
-> **Note:** If you add new site do not forget to run **vagrant provision** in your terminal in you Cubebloc directory.
+> **Note:** If you add new site, do not forget to run **vagrant provision** in your terminal in the Cubebloc directory.
 
 **Forwarded ports**
 
-In default Cubebloc forwarded ports from host to guest so you can reach all of the goddies from your host.
+As a default Cubebloc forwarded ports from host to guest so you can reach all of the goodies from your host.
 
 | Software | Host | Guest |
 | -------- |:----:|:-----:|
@@ -109,18 +109,18 @@ In default Cubebloc forwarded ports from host to guest so you can reach all of t
 
 #### Connecting Via SSH
 
-The simpliest way to connect to your virtual machine is to jump into the vagrant folder and use the `vagrant ssh` command.
+The simplest way to connect to your virtual machine is to jump into the vagrant folder and use the `vagrant ssh` command.
 
 ```bash
 $ cd /path/to/vagrant/folder
 $ vagrant ssh
 ```
 
-However after the 100th times it could be annoying so we can setup some alias for it to reach anywhere from our system.
+However, after the 100th time it can be annoying so we can set up an alias to reach it from anywhere.
 
 #### MySQL
 
-The environment shipped with the latest version of the MySQL, with the MySQL 5.7
+The environment is shipped with the latest version of the MySQL (5.7).
 
 There are two users:
 
@@ -146,12 +146,12 @@ The new MongoDB is also installed by default. You can reach it either from the h
 
 #### Redis
 
-Redis is binded to the 0.0.0.0 address and it's port forwarded to 63790.
-It is not protected by password. If you would like to change it edit the config file.
+Redis is bound to the 0.0.0.0 address and its port is forwarded to 63790.
+It is not protected by a password. If you would like to change it, edit the config file.
 
 #### Host file
 
-And do not forget to add your "domain" to your host file:
+Do not forget to add your "domain" to your host file:
 
   * Linux: /etc/hosts
   * Windows: /Windows/System32/etc/drivers/host
@@ -167,15 +167,16 @@ And do not forget to add your "domain" to your host file:
 192.168.40.10 <domain>
 ```
 
-Now if you check your `<domain>` in the browser you'll see your site.
+Now, if you check your `<domain>` in the browser you'll see your site.
 
 ## Windows Users
 
-Those who run their Vagrants on Windows could have some problems with the installation of the npm packages. There is an advice that we should install them with *--no-bin-links* flag however it is not the best way plus most of the times it is still not working. With Cubebloc it is fixed all you have to do is run your terminal with adminstrator or add your user to the Local security settings.
+Those who run their Vagrants on Windows could have some problems with the installation of the npm packages. There is an advice that we should install them with *--no-bin-links* flag, however, it is not the best way plus most of the times it does not work afterwards, either. 
+With Cubebloc this is fixed: all you have to do is run your terminal with administrator rights or add your user to the Local security settings.
 
 ## Laravel
 
-Because of everything is prepared for Laravel all you have to do is to login to you vagrant and create a new project with composer.
+Because of everything is prepared for Laravel, all you have to do is to log in to you vagrant and create a new project with the composer.
 
 ```bash
 $ vagrant ssh
@@ -184,7 +185,7 @@ $ composer create-project laravel/laravel <project-name>
 $ cd <project-name>
 ```
 
-And do not forget to add your "domain" to your host file:
+Do not forget to add your "domain" to your host file:
 
   * Linux: /etc/hosts
   * Windows: /Windows/System32/etc/drivers/host
@@ -200,10 +201,10 @@ And do not forget to add your "domain" to your host file:
 192.168.33.10 <domain>
 ```
 
-Now if you check `<domain>` in the browser you will see a fresh installation of Laravel 5. And because of the preparation even if you are a windows user you can run npm install without any problem and use laravel-elixir with all it's feature. Cool.
+Now, if you check `<domain>` in the browser, you will see a fresh installation of Laravel 5. And because of the preparation, even if you are a windows user, you can run npm install without any problems and use laravel-elixir with all its features. Cool.
 
 ## Contact
 
-If you got any question or problem do not hesitate to contact me. I'll do my best to answer or help to you.
+If you have any questions or problems do not hesitate to contact me. I'll do my best to answer and help you.
 
 You can open an issue here or write an email. Happy coding on cubebloc!
