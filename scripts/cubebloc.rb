@@ -52,6 +52,10 @@ class Cubebloc
       vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
     end
 
+    config.vm.provision "shell" do |s|
+        s.path = "./scripts/clear-sites.sh"
+    end
+
     settings["sites"].each do |site|
       config.vm.provision "shell" do |s|
         s.path = "./scripts/create-site.sh"
