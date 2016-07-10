@@ -11,6 +11,7 @@
     * [PostgreSQL](#postgresql)
     * [MongoDB](#mongodb)
     * [Redis](#redis)
+    * [RabbitMQ](#rabbitmq)
     * [Host file](#host-file)
   * [Windows Users](#windows-users)
   * [Laravel](#laravel)
@@ -151,6 +152,13 @@ The new MongoDB is also installed by default. You can reach it either from the h
 
 Redis is bound to the 0.0.0.0 address and its port is forwarded to 63790.
 It is not protected by a password. If you would like to change it, edit the config file.
+
+#### RabbitMQ
+
+Latest RabbitMQ is included as well and you can reach it on <vm-ip-address>:5672 port. Management plugin also enabled on 15672 port.
+
+| Vhosts | User | Password | Tags |
+| /, cubebloc | cubebloc | secret | Administrator |
 
 #### Host file
 
