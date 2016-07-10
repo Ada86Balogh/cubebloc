@@ -158,6 +158,7 @@ It is not protected by a password. If you would like to change it, edit the conf
 Latest RabbitMQ is included as well and you can reach it on <vm-ip-address>:5672 port. Management plugin also enabled on 15672 port.
 
 | Vhosts | User | Password | Tags |
+| ------ | ---- | -------- | ---- |
 | /, cubebloc | cubebloc | secret | Administrator |
 
 #### Host file
