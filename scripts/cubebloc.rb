@@ -5,7 +5,7 @@ class Cubebloc
     config.ssh.forward_agent = true
 
     config.vm.box = settings["box"] ||= "adamoa/cubebloc"
-    config.vm.box_version = settings["version"] ||= ">= 1.2.0"
+    config.vm.box_version = settings["version"] ||= ">= 1.3.0"
     config.vm.hostname = settings["name"] ||= "cubebloc"
 
     config.vm.network "private_network", ip: settings["ip"] ||= "192.168.40.10"
