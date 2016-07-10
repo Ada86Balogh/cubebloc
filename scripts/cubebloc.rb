@@ -37,7 +37,7 @@ class Cubebloc
 
     if settings.include? 'folders'
       settings["folders"].each do |folder|
-        config.vm.synced_folder folder["host"], folder["guest"], :mount_options => ["dmode=777", "fmode=666"]
+        config.vm.synced_folder folder["host"], folder["guest"], :mount_options => ["dmode=777", "fmode=777"]
       end
     end
 
