@@ -25,7 +25,7 @@ Cubebloc runs on any Windows, Mac, or Linux system and includes the latest techn
 
 Current stable version of the box:
 
-  * **v1.3.0**
+  * **v1.3.1**
 
 Box on Atlas:
 
@@ -40,18 +40,18 @@ Current Vagrant Providers:
 
   * Ubuntu 14.04
   * Apache 2.4.7
-  * PHP 7.0.8
+  * PHP 7.0.9
    * Composer ( with globally installed Laravel installer)
-  * Node 6.3.0
-   * Nvm 0.30.1, Npm 3.10.5, Gulp 3.9.1
+  * Node 6.3.1
+   * Nvm 0.30.1, Npm 3.10.6, Gulp 3.9.1
   * Ruby 2.3.1
    * Rvm 1.27.0, Bundler 1.12.5
-  * MySQL 5.7.13
-  * PostgreSQL 9.5.3
-  * MongoDB 3.2.7
+  * MySQL 5.7.14
+  * PostgreSQL 9.5.4
+  * MongoDB 3.2.8
   * SQLite 3.8.2
   * Redis 3.0.7
-  * RabbitMQ 3.6.3
+  * RabbitMQ 3.6.5
 
 ## Installation and Configuration
 
